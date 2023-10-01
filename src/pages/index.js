@@ -11,7 +11,7 @@ import { Spinner } from "@material-tailwind/react";
 
 
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Dashboard() {
   const router = useRouter();
