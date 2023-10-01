@@ -4,6 +4,7 @@ import {
   Checkbox,
   Button,
   Typography,
+  Textarea,
 } from "@material-tailwind/react";
 import { Alert } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
@@ -38,7 +39,7 @@ export default function Dashboard() {
     e.preventDefault();
     setIsLoading(true);
     setAlertDisplay({ open: true, message: "Bot can take some time to respond as it is hosted on free server" });
-    const url = `https://bhagwatgitabot.azurewebsites.net/api/hello`;
+    const url = `https://bhagwatgitabot.azurewebsites.net/api/get-response`;
     const res = await fetch(url, {
       method: "GET",
       headers: {
@@ -82,7 +83,7 @@ export default function Dashboard() {
       </Alert>
 
       <div className="flex items-center justify-center h-screen bg-[#EFF6FF]">
-        <Card color="transparent" shadow={false} >
+        <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">
             Get Motivated
           </Typography>
@@ -91,7 +92,7 @@ export default function Dashboard() {
           </Typography>
           <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
             <div className="mb-4 flex flex-col gap-6">
-              <Input
+              <Textarea
                 size="lg"
                 label="Query"
                 spellCheck={true}
@@ -100,7 +101,7 @@ export default function Dashboard() {
                 name="name"
                 // disabled={true}
               />
-              <Input
+              <Textarea
                 size="lg"
                 label="Response"
                 spellCheck={true}
