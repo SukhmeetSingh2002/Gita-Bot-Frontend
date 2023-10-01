@@ -41,19 +41,19 @@ export default function Dashboard() {
     setAlertDisplay({ open: true, message: "Bot can take some time to respond as it is hosted on free server" });
     const url = `https://bhagwatgitabot.azurewebsites.net/api/get-response`;
     const res = await fetch(url, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({ "user_input": query }),
+      body: JSON.stringify({ "user_input": query }),
     });
     const data = await res.json();
     setIsLoading(false);
     if (res.status === 200) {
-      setBotResponse(data.message);
-      setSuccessAlert({ open: true, message: data.message });
+      setBotResponse(data.response);
+      setSuccessAlert({ open: true, message: data.response });
     } else {
-      setAlertDisplay({ open: true, message: data.message });
+      setAlertDisplay({ open: true, message: data.response });
     }
   }
 
